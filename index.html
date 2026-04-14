@@ -1,189 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TechnoWizz 9.0 — The Treasure Hunt</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cinzel:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="index.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>360° Virtual Tour</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0f;
+      --card: #141417;
+      --accent: #e8ff47;
+      --text: #f0f0ec;
+      --muted: #666;
+      --border: #222;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-dot {
+      width: 10px; height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    header h1 {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    header span {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 32px;
+      gap: 20px;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .scene-label {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .scene-label h2 {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .scene-label p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    #panorama {
+      width: 100%;
+      height: 520px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .pnlm-load-box,
+    .pnlm-lbar,
+    .pnlm-lbar-fill,
+    .pnlm-loading,
+    .pnlm-load-button { display: none !important; }
+
+    .scene-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .scene-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .scene-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .scene-btn.active {
+      background: var(--accent);
+      color: #0d0d0f;
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    .info-bar {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 14px 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+    }
+
+    footer {
+      padding: 16px 32px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-<div class="scanlines"></div>
-<!-- Corner decorations -->
-<div class="corner-deco tl">
-  <svg width="180" height="180" viewBox="0 0 180 180" fill="none">
-    <path d="M0 0 L180 0 L180 20 L20 20 L20 180 L0 180 Z" fill="#00e5cc"/>
-    <path d="M40 0 L40 40 L0 40" stroke="#00e5cc" stroke-width="1" fill="none"/>
-  </svg>
-</div>
+<header>
+  <div class="logo-dot"></div>
+  <h1>360° Virtual Tour</h1>
+  <span>3 Scenes</span>
+</header>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">
-    <div class="nav-badge">TW</div>
-    <div class="nav-logo-block">
-      TechnoWizz 9.0
-    </div>
-  </a>
-</nav>
+<main>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="glow-ring"></div>
-
-  <div class="hero-inner">
-    <div class="hero-eyebrow fade-up">GSCC PRESENTS</div>
-
-    <h1 class="hero-title fade-up">
-      TechnoWizz
-      <span class="version">Edition 9.0</span>
-    </h1>
-
-    <p class="hero-subtitle fade-up">
-      The sage hid his treasure centuries ago. His fragments lie hidden across this very campus.
-      Only the clever and the bold will claim what waits.
-    </p>
-
-    <div class="cta-group fade-up">
-
-      <a href="campus.html" class="btn-explore">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-          <path d="M2 12h20"/>
-        </svg>
-        Explore the Campus
-      </a>
-
-      <div class="btn-start-wrap">
-        <button class="btn-start" id="startBtn" disabled>
-          <span class="btn-lock-icon">🔒</span>
-          <span id="startBtnLabel">BEGIN THE HUNT</span>
-        </button>
-        <div class="countdown-wrap" id="countdownWrap">
-          <div class="countdown-dot"></div>
-          <span>UNLOCKS IN &nbsp;</span>
-          <span id="countdown-timer">--:--:--:--</span>
-        </div>
-      </div>
-
-    </div>
+  <div class="scene-label">
+    <h2 id="current-title">Chawl — 1</h2>
+    <p id="current-desc">Drag to look around · Scroll to zoom · Click arrows to move</p>
   </div>
 
-  <div class="scroll-hint">
-    <div class="scroll-arrow"></div>
-    SCROLL
-  </div>
-</section>
+  <div id="panorama"></div>
 
-<!-- DIVIDER -->
-<div class="section-divider" style="margin-bottom:3rem;"></div>
-
-<!-- ROUNDS SECTION -->
-<section class="rounds-section">
-  <div class="rounds-header">
-    <h2 id="3r">Three Rounds.</h2>
-    <h2 id="1t">One Treasure.</h2>
+  <div class="scene-nav">
+    <button class="scene-btn active" onclick="switchScene('scene1', this)">Chawl — 1</button>
+    <button class="scene-btn" onclick="switchScene('scene2', this)">Chawl — 2</button>
+    <button class="scene-btn" onclick="switchScene('scene3', this)">Chawl — 3</button>
   </div>
 
-  <div class="rounds-grid">
-
-    <div class="round-card">
-      <div class="round-number">ROUND · 01</div>
-      <h3>The Hunt</h3>
-      <p>Armed with the Spectral Lens, teams scatter across campus scanning hidden QR fragments. Each scan unlocks a clue. Each clue points deeper. Answer correctly or be eliminated — you have 3 minutes per question.</p>
-      <div class="round-meta">
-        <div class="round-meta-dot"></div>
-        45 MINUTES
-        <div class="round-meta-dot"></div>
-        CAMPUS-WIDE
-      </div>
-      <div class="round-icon">I</div>
-    </div>
-
-    <div class="round-card">
-      <div class="round-number">ROUND · 02</div>
-      <h3>The Puzzle</h3>
-      <p>Regroup at the assembly point. The QR fragments you've collected are pieces of an ancient map — shattered by the sage himself. Assemble them in the correct order to reveal the path forward.</p>
-      <div class="round-meta">
-        <div class="round-meta-dot"></div>
-        30 MINUTES
-        <div class="round-meta-dot"></div>
-        ASSEMBLY POINT
-      </div>
-      <div class="round-icon">II</div>
-    </div>
-
-    <div class="round-card">
-      <div class="round-number">ROUND · 03</div>
-      <h3>The Route</h3>
-      <p>The map is complete. The final coordinates are yours. Follow the route to its end — uncover what the ancient sage buried, and discover what Dr. Karn may have found the night he vanished.</p>
-      <div class="round-meta">
-        <div class="round-meta-dot"></div>
-        45 MINUTES
-        <div class="round-meta-dot"></div>
-        FINAL LOCATION
-      </div>
-      <div class="round-icon">III</div>
-    </div>
-
+  <div class="info-bar">
+    <span>Drag to look around</span>
+    <span>Scroll to zoom</span>
+    <span>Click hotspots to navigate</span>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">TechnoWizz 9.0</div>
-  <div class="footer-org">GHANSHYAMDAS SARAF COLLEGE OF ARTS & COMMERCE</div>
-  <div class="footer-links">
-    <a href="#">About</a>
-    <a href="#">Rules</a>
-    <a href="#">Contact</a>
-    <a href="login.html">Admin</a>
-  </div>
-  <div class="footer-copy">© 2025 GSCC · TECHNOWIZZ 9.0 · ALL RIGHTS RESERVED</div>
-</footer>
+</main>
+
+<footer>360° Virtual Tour &nbsp;·&nbsp; Pannellum</footer>
 
 <script>
-  const UNLOCK_DATE = new Date('2025-08-15T10:00:00');
-
-  function updateCountdown() {
-    const now = new Date();
-    const diff = UNLOCK_DATE - now;
-
-    if (diff <= 0) {
-      const btn = document.getElementById('startBtn');
-      btn.disabled = false;
-      btn.classList.add('active');
-      btn.querySelector('.btn-lock-icon').textContent = '▶';
-      document.getElementById('startBtnLabel').textContent = 'BEGIN THE HUNT';
-      document.getElementById('countdownWrap').style.display = 'none';
-      btn.onclick = () => window.location.href = 'game.html';
-      return;
+  const scenes = {
+    scene1: {
+      title: "Chawl — 1",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/chawl-1.jpg",
+      hotSpots: [
+        { pitch: -22, yaw: 0,   type: "scene", text: "→ Chawl 2", sceneId: "scene2" }
+      ]
+    },
+    scene2: {
+      title: "Chawl — 2",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/chawl-2.jpg",
+      hotSpots: [
+        { pitch: -20, yaw: 180, type: "scene", text: "← Chawl 1", sceneId: "scene1" },
+        { pitch: -22, yaw: 0,   type: "scene", text: "→ Chawl 3", sceneId: "scene3" }
+      ]
+    },
+    scene3: {
+      title: "Chawl — 3",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/chawl-3.jpg",
+      hotSpots: [
+        { pitch: -5, yaw: 200, type: "scene", text: "← Chawl 2", sceneId: "scene2" }
+      ]
     }
+  };
 
-    const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  let viewer = pannellum.viewer('panorama', {
+    default: {
+      firstScene:         "scene1",
+      sceneFadeDuration:  800,
+      autoLoad:           true,
+      showZoomCtrl:       true,
+      showFullscreenCtrl: true,
+      hotSpotDebug:       false
+    },
+    scenes: {
+      scene1: { type: "equirectangular", hfov: 110, ...scenes.scene1 },
+      scene2: { type: "equirectangular", hfov: 110, ...scenes.scene2 },
+      scene3: { type: "equirectangular", hfov: 110, ...scenes.scene3 }
+    }
+  });
 
-    const pad = n => String(n).padStart(2, '0');
-    document.getElementById('countdown-timer').textContent =
-      `${pad(days)}D ${pad(hours)}H ${pad(minutes)}M ${pad(seconds)}S`;
+  Object.values(scenes).forEach(s => { new Image().src = s.panorama; });
 
-    setTimeout(updateCountdown, 1000);
+  viewer.on('scenechange', function(id) {
+    document.querySelectorAll('.scene-btn').forEach((b, i) => {
+      b.classList.toggle('active', Object.keys(scenes)[i] === id);
+    });
+    document.getElementById('current-title').textContent = scenes[id].title;
+    document.getElementById('current-desc').textContent  = scenes[id].desc;
+  });
+
+  function switchScene(id, btn) {
+    viewer.loadScene(id);
+    document.querySelectorAll('.scene-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('current-title').textContent = scenes[id].title;
+    document.getElementById('current-desc').textContent  = scenes[id].desc;
   }
-
-  updateCountdown();
-
-  window.addEventListener('scroll', function() {
-    var el = document.getElementById('sideSecret');
-    if (el && window.scrollX > 8) {
-      el.style.right = '-10px';
-    } else if (el) {
-      el.style.right = '-120px';
-    }
-  }, { passive: true });
 </script>
 
 </body>
