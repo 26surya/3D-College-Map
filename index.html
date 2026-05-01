@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>360° Virtual Tour</title>
+  <title>Campus Tour</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
   <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
@@ -149,6 +149,27 @@
       font-family: 'Space Mono', monospace;
     }
 
+    .hs-num {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.75);
+      border: 2px solid white;
+      background-image: none !important;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hs-0::after { content: "G"; color: white; font-size: 18px; font-weight: bold; }
+    .hs-1::after { content: "1"; color: white; font-size: 18px; font-weight: bold; }
+    .hs-2::after { content: "2"; color: white; font-size: 18px; font-weight: bold; }
+    .hs-3::after { content: "3"; color: white; font-size: 18px; font-weight: bold; }
+    .hs-4::after { content: "4"; color: white; font-size: 18px; font-weight: bold; }
+    .hs-5::after { content: "5"; color: white; font-size: 18px; font-weight: bold; }
+    .hs-6::after { content: "6"; color: white; font-size: 18px; font-weight: bold; }
+
     footer {
       padding: 16px 32px;
       border-top: 1px solid var(--border);
@@ -163,23 +184,73 @@
 
 <header>
   <div class="logo-dot"></div>
-  <h1>360° Virtual Tour</h1>
+  <h1>Campus Tour</h1>
   <span>3 Scenes</span>
 </header>
 
 <main>
 
   <div class="scene-label">
-    <h2 id="current-title">Chawl — 1</h2>
+    <h2 id="current-title">Ghanshyamdas Saraf College of Arts & Commerce</h2>
     <p id="current-desc">Drag to look around · Scroll to zoom · Click arrows to move</p>
   </div>
 
   <div id="panorama"></div>
 
   <div class="scene-nav">
-    <button class="scene-btn active" onclick="switchScene('scene1', this)">Chawl — 1</button>
-    <button class="scene-btn" onclick="switchScene('scene2', this)">Chawl — 2</button>
-    <button class="scene-btn" onclick="switchScene('scene3', this)">Chawl — 3</button>
+    <button class="scene-btn active" onclick="switchScene('scene1', this)">Entry Gate</button>
+    <button class="scene-btn" onclick="switchScene('Back_Side_2', this)">Back Side</button>
+    <button class="scene-btn" onclick="switchScene('Back_Side_6', this)">Red Pipe</button>
+    <button class="scene-btn" onclick="switchScene('Foir', this)">Foir</button>
+    <button class="scene-btn" onclick="switchScene('Lift', this)">Lift</button>
+    <button class="scene-btn" onclick="switchScene('Sixth_Floor_0', this)">6th Floor</button>
+    <button class="scene-btn" onclick="switchScene('scene7', this)">Scene — 7</button>
+    <button class="scene-btn" onclick="switchScene('scene8', this)">Scene — 8</button>
+    <button class="scene-btn" onclick="switchScene('scene9', this)">Scene — 9</button>
+    <button class="scene-btn" onclick="switchScene('scene10', this)">Scene — 10</button>
+    <button class="scene-btn" onclick="switchScene('scene11', this)">Scene — 11</button>
+    <button class="scene-btn" onclick="switchScene('scene12', this)">Scene — 12</button>
+    <button class="scene-btn" onclick="switchScene('scene13', this)">Scene — 13</button>
+    <button class="scene-btn" onclick="switchScene('scene14', this)">Scene — 14</button>
+    <button class="scene-btn" onclick="switchScene('scene15', this)">Scene — 15</button>
+    <button class="scene-btn" onclick="switchScene('scene15', this)">Scene — 15</button>
+    <button class="scene-btn" onclick="switchScene('scene16', this)">Scene — 16</button>
+    <button class="scene-btn" onclick="switchScene('scene17', this)">Scene — 17</button>
+    <button class="scene-btn" onclick="switchScene('scene18', this)">Scene — 18</button>
+    <button class="scene-btn" onclick="switchScene('scene19', this)">Scene — 19</button>
+    <button class="scene-btn" onclick="switchScene('scene20', this)">Scene — 20</button>
+    <button class="scene-btn" onclick="switchScene('scene21', this)">Scene — 21</button>
+    <button class="scene-btn" onclick="switchScene('scene22', this)">Scene — 22</button>
+    <button class="scene-btn" onclick="switchScene('Ground_Floor', this)">Scene — 23</button>
+    <button class="scene-btn" onclick="switchScene('scene24', this)">Scene — 24</button>
+    <button class="scene-btn" onclick="switchScene('scene25', this)">Scene — 25</button>
+    <button class="scene-btn" onclick="switchScene('scene26', this)">Scene — 26</button>
+    <button class="scene-btn" onclick="switchScene('scene27', this)">Scene — 27</button>
+    <button class="scene-btn" onclick="switchScene('scene28', this)">Scene — 28</button>
+    <button class="scene-btn" onclick="switchScene('scene29', this)">Scene — 29</button>
+    <button class="scene-btn" onclick="switchScene('scene30', this)">Scene — 30</button>
+    <button class="scene-btn" onclick="switchScene('scene31', this)">Scene — 31</button>
+    <button class="scene-btn" onclick="switchScene('scene32', this)">Scene — 32</button>
+    <button class="scene-btn" onclick="switchScene('scene33', this)">Scene — 33</button>
+    <button class="scene-btn" onclick="switchScene('scene34', this)">Scene — 34</button>
+    <button class="scene-btn" onclick="switchScene('scene35', this)">Scene — 35</button>
+    <button class="scene-btn" onclick="switchScene('scene36', this)">Scene — 36</button>
+    <button class="scene-btn" onclick="switchScene('scene37', this)">Scene — 37</button>
+    <button class="scene-btn" onclick="switchScene('scene38', this)">Scene — 38</button>
+    <button class="scene-btn" onclick="switchScene('scene39', this)">Scene — 39</button>
+    <button class="scene-btn" onclick="switchScene('scene40', this)">Scene — 40</button>
+    <button class="scene-btn" onclick="switchScene('scene41', this)">Scene — 41</button>
+    <button class="scene-btn" onclick="switchScene('scene42', this)">Scene — 42</button>
+    <button class="scene-btn" onclick="switchScene('scene43', this)">Scene — 43</button>
+    <button class="scene-btn" onclick="switchScene('scene44', this)">Scene — 44</button>
+    <button class="scene-btn" onclick="switchScene('scene45', this)">Scene — 45</button>
+    <button class="scene-btn" onclick="switchScene('scene46', this)">Scene — 46</button>
+    <button class="scene-btn" onclick="switchScene('scene47', this)">Scene — 47</button>
+    <button class="scene-btn" onclick="switchScene('scene48', this)">Scene — 48</button>
+    <button class="scene-btn" onclick="switchScene('scene49', this)">Scene — 49</button>
+    <button class="scene-btn" onclick="switchScene('scene50', this)">Scene — 50</button>
+
+
   </div>
 
   <div class="info-bar">
@@ -190,51 +261,252 @@
 
 </main>
 
-<footer>360° Virtual Tour &nbsp;·&nbsp; Pannellum</footer>
+<footer>360° Virtual Tour of Ghanshyamdas Saraf College of Arts & Commerce  </footer>
 
 <script>
   const scenes = {
     scene1: {
-      title: "Chawl — 1",
+      title: "College Enterence",
       desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
-      panorama: "panoramas/chawl-1.jpg",
+      panorama: "panoramas/Suraj Clg Outer Gate.jpg",
       hotSpots: [
-        { pitch: -22, yaw: 0,   type: "scene", text: "→ Chawl 2", sceneId: "scene2" }
+        { pitch: -15, yaw: 0,   type: "scene", text: "→ Enter the College", sceneId: "Enterence_Right_1" }
       ]
     },
-    scene2: {
-      title: "Chawl — 2",
+    Enterence_Right_1: {
+      title: "Enterence Right",
       desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
-      panorama: "panoramas/chawl-2.jpg",
+      panorama: "panoramas/Main Gate (Alex).jpg",
       hotSpots: [
-        { pitch: -20, yaw: 180, type: "scene", text: "← Chawl 1", sceneId: "scene1" },
-        { pitch: -22, yaw: 0,   type: "scene", text: "→ Chawl 3", sceneId: "scene3" }
+        { pitch: -20, yaw: 180, type: "scene", text: "← Exit the College", sceneId: "scene1" },
+        { pitch: -17, yaw: -45,   type: "scene", text: "Back Side", sceneId: "Back_Side_1" },
+        { pitch: -17, yaw: 45,   type: "scene", text: "Foir Area", sceneId: "Enterence_Right" }
       ]
     },
-    scene3: {
-      title: "Chawl — 3",
+    Back_Side_1: {
+      title: "College Back Side",
       desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
-      panorama: "panoramas/chawl-3.jpg",
+      panorama: "panoramas/Suraj Entry Gate Right 1.jpg",
       hotSpots: [
-        { pitch: -5, yaw: 200, type: "scene", text: "← Chawl 2", sceneId: "scene2" }
+        { pitch: -10, yaw: 20, type: "scene", text: "↑ Move Forward", sceneId: "Back_Side_2" },
+        { pitch: -10, yaw: 160, type: "scene", text: "↑ Exit", sceneId: "Enterence_Right_1" }
       ]
-    }
+    },
+    Back_Side_2: {
+      title: "College Back Side",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/Suraj Entry Gate Right 3.jpg",
+      hotSpots: [
+        { pitch: -10, yaw: -4, type: "scene", text: "↑ Move Forward", sceneId: "Back_Side_3" },
+        { pitch: -10, yaw: 176, type: "scene", text: "↑ Move Backward", sceneId: "Back_Side_1" },
+        { pitch: -5, yaw: 127, type: "scene", text: "Foir", sceneId: "Foir" }
+      ]
+    },
+    Back_Side_3: {
+      title: "College Back Side",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/Suraj Entry Gate Right 4.jpg",
+      hotSpots: [
+        { pitch: -10, yaw: -4, type: "scene", text: "↑ Move Forward", sceneId: "Back_Side_4" },
+        { pitch: -10, yaw: 176, type: "scene", text: "↑ Move Backward", sceneId: "Back_Side_2" }
+      ]
+    },
+    Back_Side_4: {
+      title: "Red Pipe Area",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/Suraj Entry Gate 5.jpg",
+      hotSpots: [
+        { pitch: -10, yaw: -4, type: "scene", text: "↑ Move Forward", sceneId: "Back_Side_5" },
+        { pitch: -10, yaw: 176, type: "scene", text: "↑ Move Backward", sceneId: "Back_Side_3" }
+      ]
+    },
+
+    Back_Side_5: {
+      title: "Red Pipe Area",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/Suraj Entry Gate 6.jpg",
+      hotSpots: [
+        { pitch: -7, yaw: 30, type: "scene", text: "↑ Move Forward", sceneId: "Back_Side_6" },
+        { pitch: -7, yaw: 150, type: "scene", text: "↑ Move Backward", sceneId: "Back_Side_4" }
+      ]
+    },
+
+    Back_Side_6: {
+      title: "Red Pipe Area",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/Red Pipe Corner ( Alex) .jpg",
+      pitch: 10,
+      yaw: 13,
+      hotSpots: [
+        { pitch: -10, yaw: 0, type: "scene", text: "↑ Move Forward", sceneId: "Back_Side_7" },
+        { pitch: -10, yaw: 120, type: "scene", text: "↑ Move Backward", sceneId: "Back_Side_5" }
+      ]
+    },
+
+    Back_Side_7: {
+      title: "Red Pipe Area",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/Behind Stairs 2 ( Alex) .jpg",
+      // pitch: 10,
+      // yaw: 13,
+      hotSpots: [
+        { pitch: -10, yaw: 0, type: "scene", text: "↑ Move Forward", sceneId: "scene10" },
+        { pitch: -10, yaw: 180, type: "scene", text: "↑ Move Backward", sceneId: "Back_Side_6" }
+      ]
+    },
+    
+    Enterence_Right: {
+      title: "Enterence Right",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/Entrance right side (arpit).jpg",
+      pitch: 0,
+      yaw: -85,
+      hotSpots: [
+        { pitch: -15, yaw: -85, type: "scene", text: "↑ Enter to the Foir", sceneId: "Foir_Entry" },
+        { pitch: -15, yaw: -185, type: "scene", text: "↑ Exit", sceneId: "Enterence_Right_1" }
+      ]
+    },
+
+    Foir_Entry: {
+      title: "Foir Entry",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/Loby start (arpit).jpg",
+      hotSpots: [
+        { pitch: -20, yaw: 0, type: "scene", text: "↑ Move Forward", sceneId: "Foir" },
+        { pitch: -20, yaw: 180, type: "scene", text: "↑ Move Forward", sceneId: "Enterence_Right" }
+      ]
+    },
+
+    Foir: {
+      title: "Foir",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/Loby mid (arpit).jpg",
+      hotSpots: [
+        { pitch: -10, yaw: 22, type: "scene", text: "↑ Move Forward", sceneId: "Ground_Floor" },
+        { pitch: -25, yaw: 170, type: "scene", text: "Outside Foir", sceneId: "Foir_Entry" },
+        { pitch: -10, yaw: 300, type: "scene", text: "Back Side", sceneId: "Back_Side_2" }
+      ]
+    },
+
+    Ground_Floor: {
+      title: "Ground Floor",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/Loby end (arpit).jpg",
+      hotSpots: [
+        { pitch: -10, yaw: 42, type: "scene", text: "Lift", sceneId: "Lift" },
+        { pitch: -10, yaw: -65, type: "scene", text: "↑ 1st Floor", sceneId: "scene24" },
+        { pitch: -25, yaw: 220, type: "scene", text: "Foir", sceneId: "Foir" }
+      ]
+    },
+    
+    Lift: {
+      title: "Lift",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      yaw: -160,
+      panorama: "panoramas/Lift.png",
+      hotSpots: [
+        { pitch: -4.5, yaw: 245, type: "scene", text: "6th Floor", sceneId: "Sixth_Floor_0", cssClass: "hs-num hs-6" },
+        { pitch: -5, yaw: 241, type: "scene", text: "5th Floor", sceneId: "5th Floor", cssClass: "hs-num hs-5" },
+        { pitch: -9.5, yaw: 245, type: "scene", text: "4th Floor", sceneId: "4th Floor", cssClass: "hs-num hs-4" },
+        { pitch: -10, yaw: 241, type: "scene", text: "3rd Floor", sceneId: "3rd Floor", cssClass: "hs-num hs-3" },
+        { pitch: -14, yaw: 245, type: "scene", text: "2nd Floor", sceneId: "2nd Floor", cssClass: "hs-num hs-2" },
+        { pitch: -15, yaw: 241, type: "scene", text: "1st Floor", sceneId: "1st Floor", cssClass: "hs-num hs-1" },
+        { pitch: -20, yaw: 243, type: "scene", text: "Ground Floor", sceneId: "Ground_Floor", cssClass: "hs-num hs-0" },
+      ]
+    },
+
+    Sixth_Floor_0: {
+      title: "6th Floor",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/6th Floor/6th Floor Main ( Alex ) .jpg",
+      hotSpots: [
+        { pitch: -10, yaw: -37, type: "scene", text: "6th Floor Lobby", sceneId: "Sixth_Floor_1" },
+      ]
+    },
+
+    Sixth_Floor_1: {
+      title: "6th Floor",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/6th Floor/6th floor start (arpit).jpg",
+      hotSpots: [
+        { pitch: -15, yaw: -2, type: "scene", text: "↑ Move Forward", sceneId: "Sixth_Floor_2" },
+        { pitch: -5, yaw: 27, type: "scene", text: "Room No. 610", sceneId: "Sixth_Floor_610" },
+        { pitch: -5, yaw: -29, type: "scene", text: "Room No. 603", sceneId: "Sixth_Floor_603" },
+        { pitch: -3, yaw: -20, type: "scene", text: "Room No. 604", sceneId: "Sixth_Floor_604" },
+      ]
+    },
+
+    Sixth_Floor_2: {
+      title: "6th Floor",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/6th Floor/6th floor mid(arpit).jpg",
+      hotSpots: [
+        { pitch: -15, yaw: -6, type: "scene", text: "↑ Move Forward", sceneId: "Sixth_Floor_3" },
+        { pitch: -15, yaw: -180, type: "scene", text: "↑ Move Backward", sceneId: "Sixth_Floor_1" },
+      ]
+    },
+
+    Sixth_Floor_3: {
+      title: "6th Floor",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/6th Floor/6th floor end(arpit).jpg",
+      pitch:0,
+      yaw: 200,
+      hotSpots: [
+        { pitch: -15, yaw: 200, type: "scene", text: "↑ Move Backward", sceneId: "Sixth_Floor_2" },
+      ]
+    },
+
+    Sixth_Floor_610: {
+      title: "Class No. 610 - Tapti",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/6th Floor/Suraj Room no.610.jpg",
+      hotSpots: [
+        { pitch: -5, yaw: -47, type: "scene", text: "Lobby", sceneId: "Sixth_Floor_1" },
+      ]
+    },
+    
+    Sixth_Floor_603: {
+      title: "Class No. 603 - SuvarnaRekha",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/6th Floor/Sutaj Room no. 603 (not final).jpg",
+      hotSpots: [
+        { pitch: -5, yaw: 62, type: "scene", text: "Lobby", sceneId: "Sixth_Floor_1" },
+      ]
+    },
+
+    Sixth_Floor_604: {
+      title: "Class No. 604 - SuvarnaRekha",
+      desc:  "Drag to look around · Scroll to zoom · Click arrows to move",
+      panorama: "panoramas/6th Floor/604 (Alex ) .jpg",
+      hotSpots: [
+        { pitch: -5, yaw: 62, type: "scene", text: "Lobby", sceneId: "Sixth_Floor_1" },
+      ]
+    },
+
   };
 
+  
+
+  let pannellumScenes = {};
+
+  for (let key in scenes) {
+  pannellumScenes[key] = {
+    type: "equirectangular",
+    hfov: 120,
+    ...scenes[key]
+  };
+  }
+
   let viewer = pannellum.viewer('panorama', {
-    default: {
-      firstScene:         "scene1",
-      sceneFadeDuration:  800,
-      autoLoad:           true,
-      showZoomCtrl:       true,
-      showFullscreenCtrl: true,
-      hotSpotDebug:       false
-    },
-    scenes: {
-      scene1: { type: "equirectangular", hfov: 110, ...scenes.scene1 },
-      scene2: { type: "equirectangular", hfov: 110, ...scenes.scene2 },
-      scene3: { type: "equirectangular", hfov: 110, ...scenes.scene3 }
-    }
+  default: {
+    firstScene: "scene1",
+    sceneFadeDuration: 800,
+    autoLoad: true,
+    showZoomCtrl: true,
+    showFullscreenCtrl: true
+  },
+  scenes: pannellumScenes
   });
 
   Object.values(scenes).forEach(s => { new Image().src = s.panorama; });
